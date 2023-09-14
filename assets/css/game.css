@@ -1,0 +1,37 @@
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgb(86, 165, 235, 0.25);
+    background-color: white;
+}
+.choice-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 royalblue;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.choice-selector {
+    padding: 1.5rem 2.5rem;
+    background-color: royalblue;
+    color: white;
+}
+
+.choice-text{
+    padding:1.5rem;
+}
+
+.timer {
+    height: 150px;
+    padding: 10px;
+    background-color: rgba(65, 105, 225, 0.319);
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+.timer-counter {
+    font-size: 55px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
