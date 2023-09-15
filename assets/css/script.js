@@ -1,13 +1,16 @@
-const question = document.getElementById("question");
-const choice = Array.from(document.getElementsByClassName("choice-text"));
 
-let currentQuestion = {};
-let acceptingAnswers = true;
-let score = 0;
-let questionCounter = 0;
-let availableQuestions = [];
+//connects JS with the HTML doc
+var question = document.getElementById("question");
+var choice = Array.from(document.getElementsByClassName("choice-text"));
+var startBtn = document.querySelector(".btn");
+var timerEl = document.querySelector("div.timer-counter");
 
-let questions = [
+
+
+
+
+//Multiple Choice Question Array
+var questions = [
 {
     question: "What extra tags must be added to an HTML page to include JavaScript statements?",
     choice1: "<script>",
@@ -49,6 +52,47 @@ let questions = [
     answer: 1
 }
 ];
+var questionInQuiz = 5;
+var timer;
+var timerCount;
+//1. After clicking Play on index.html, page will load to quiz html
+//2. Timer will start counting down and first question will load
+//3. User will click answer
+     //a. if wrong, time will decrease by x seconds and score will NOT increase
+     //b. if correct, time will continue and score will increase by 1
+//4.  When the user selects an answer, the screen will display either correct or wrong
+//5. Next question will load
+//6.  After all 5 questions, user will see final score
+//7. User can then log initials with highscore.  
+        //8. Highscores can be viewed 
+
+//Functions
+    //startTimer()
+    //score()
+    //startQuiz()
+    //gameOver()
 
 
 
+function startTimer(seconds){
+    timerCount = seconds;
+
+    timer = setInterval(() => {
+        console.log(timerCount);
+        timerCount--;
+        // timerEl.textContent = timerCount;
+        //Note: logging to console.log, but will not connect to text in html
+
+        //if (answerWrong)
+        //counter-=10
+        //then next statement will be else?
+        if (timerCount < 0){
+            clearInterval(timer);
+            console.log('Time is up!')
+            
+        }
+    }, 1000);
+    
+}
+startTimer(120);
+// startBtn.addEventListener("click", startTimer);
