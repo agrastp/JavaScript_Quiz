@@ -8,18 +8,18 @@ function showQuestion(){
     //we need to pick from the array (not just first)
     var currentQuestion = questionSet[currentIndex]
     var questionEl = document.getElementById("question");
-    // console.log(questionEl);
-    // console.dir(questionEl)
-    // console.log(currentQuestion)
+    console.log(questionEl);
+    console.dir(questionEl)
+    console.log(currentQuestion)
     questionEl.textContent = currentQuestion.prompt;
     showChoices()
 }
 
 function showChoices(){
     var currentChoices = questionSet[currentIndex].choices;
-    // console.log(currentChoices)
+    console.log(currentChoices)
     var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
-    // console.log(choiceElements)
+    console.log(choiceElements)
     for(let i=0; i< currentChoices.length; i++){
         choiceElements[i].textContent = currentChoices[i]
         choiceElements[i].addEventListener("click", checkAnswer)
@@ -27,7 +27,7 @@ function showChoices(){
 }
 
 function checkAnswer(event){
-    // console.log(event);
+    console.log(event);
     var selectedElement = event.target;
     
     console.log(selectedElement);
@@ -38,8 +38,6 @@ function checkAnswer(event){
     if (selectedElement === correctAnswer)
     finalScore++;
     console.log(finalScore);
-
-   
 
     //check if its right or wrong
 //do what you must to the score
@@ -90,7 +88,7 @@ var questionSet = [
     answer: "a local variable."
 }
 ];
-var questionInQuiz = 5;
+
 //1. After clicking Play on index.html, page will load to quiz html
 //2. Timer will start counting down and first question will load
 //3. User will click answer
