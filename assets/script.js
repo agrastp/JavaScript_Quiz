@@ -34,8 +34,8 @@ function checkAnswer(event){
    
 
     var correctAnswer = questionSet[currentIndex].answer;
-
-    if (selectedElement === correctAnswer)
+    console.log(correctAnswer);
+    if (selectedElement === correctAnswer);
     finalScore++;
     console.log(finalScore);
 
