@@ -19,9 +19,10 @@ function showChoices(){
     var currentChoices = questionSet[currentIndex].choices;
     console.log(currentChoices)
     var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
-    console.log(choiceElements)
+   
     for(let i=0; i< currentChoices.length; i++){
         choiceElements[i].textContent = currentChoices[i]
+        // console.log(choiceElements[i]);
         choiceElements[i].addEventListener("click", checkAnswer)
     }
 }
@@ -42,11 +43,12 @@ function checkAnswer(event){
     //check if its right or wrong
 //do what you must to the score
 //check if you have extra questions to show or not (questionSet.length vs currentIndex)
-    currentIndex++
+    // currentIndex++
     if (currentIndex>=5){
     window.location.href = "score_page.html";
     } else {
-    showQuestion()
+    showQuestion();
+    currentIndex++
     }
 }
 
