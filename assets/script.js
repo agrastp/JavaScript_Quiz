@@ -92,27 +92,20 @@ function displayMessage(m) {
 
 }
 
-// function nextQuestion() {
-//     if (currentIndex > questionSet.length) {
-//         window.location.href = "score_page.html";
-//     } else {
-//         showQuestion();
-//         currentIndex++;
-//     }
-// }
-
-var scoreEl = document.querySelector(".correct");
 function nextQuestion() {
     currentIndex++;
-    if (currentIndex <= questionSet.length) {
+    if (currentIndex < questionSet.length -1)  {
         showQuestion();
     } else {
         stopTimer();
         timerEl = 0;
         window.location.href = "score_page.html";
+        var scoreEl = document.querySelector(".correct");
         scoreEl.textContent = finalScore; 
     }
 }
+
+console.log(finalScore);
 
 function startTimer() {
     timerCount = 60;
@@ -126,10 +119,10 @@ function startTimer() {
  
 }
 
-startTimer()
+startTimer();
 
 function stopTimer() {
-    clearInterval(interval);
+    clearInterval(timer);
 }
 
 //check if its right or wrong
