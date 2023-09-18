@@ -1,197 +1,197 @@
-// var timerCount;
-// var currentIndex = 0;
-// var finalScore = 0;
+var timerCount;
+var currentIndex = 0;
+var finalScore = 0;
 
-// //connects JS with the HTML doc
+//connects JS with the HTML doc
 
-// function showQuestion() {
-//     //we need to pick from the array (not just first)
-//     var currentQuestion = questionSet[currentIndex]
-//     var questionEl = document.getElementById("question");
-//     console.log(questionEl);
-//     console.dir(questionEl)
-//     console.log(currentQuestion)
-//     questionEl.textContent = currentQuestion.prompt;
-//     showChoices()
-// }
+function showQuestion() {
+    //we need to pick from the array (not just first)
+    var currentQuestion = questionSet[currentIndex]
+    var questionEl = document.getElementById("question");
+    console.log(questionEl);
+    console.dir(questionEl)
+    console.log(currentQuestion)
+    questionEl.textContent = currentQuestion.prompt;
+    showChoices()
+}
 
-// function showChoices() {
-//     var currentChoices = questionSet[currentIndex].choices;
-//     console.log(currentChoices)
-//     var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
+function showChoices() {
+    var currentChoices = questionSet[currentIndex].choices;
+    console.log(currentChoices)
+    var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
 
-//     for (let i = 0; i < currentChoices.length; i++) {
-//         choiceElements[i].textContent = currentChoices[i]
-//         // console.log(choiceElements[i]);
-//         choiceElements[i].addEventListener("click", checkAnswer)
-//     }
-// }
+    for (let i = 0; i < currentChoices.length; i++) {
+        choiceElements[i].textContent = currentChoices[i]
+        // console.log(choiceElements[i]);
+        choiceElements[i].addEventListener("click", checkAnswer)
+    }
+}
 
-// function checkAnswer(event) {
-//     console.log(event);
-//     var selectedElement = event.target;
+function checkAnswer(event) {
+    console.log(event);
+    var selectedElement = event.target;
 
-//     console.log(selectedElement);
-//     console.log(typeof(selectedElement));
+    console.log(selectedElement);
+    console.log(typeof(selectedElement));
 
-//     var correctAnswer = questionSet[currentIndex].answer;
-//     console.log(correctAnswer);
-//     console.log(typeof(correctAnswer));
+    var correctAnswer = questionSet[currentIndex].answer;
+    console.log(correctAnswer);
+    console.log(typeof(correctAnswer));
 
-//     console.log(JSON.stringify(selectedElement));
-
-
-//     //this takes the user to the next question
-//     // showQuestion();
-//     // currentIndex++;
-
-//     // if (selectedElement === correctAnswer) {
-//     //     finalScore++;
-//     //     console.log(finalScore);
+    console.log(JSON.stringify(selectedElement));
 
 
+    //this takes the user to the next question
+    // showQuestion();
+    // currentIndex++;
 
-
-
-//     //check if its right or wrong
-//     //do what you must to the score
-//     //check if you have extra questions to show or not (questionSet.length vs currentIndex)
-
-//     // if (currentIndex>=5){
-//     // window.location.href = "score_page.html";
-//     // } else {
-
-
-
-
-// }
-
-
-
-// // nextQuestion() {
-// //     if (currentIndex >= 5) {
-// //         window.location.href = "score_page.html";
-// //     } else {
-
-// //     }
-// // }
+    // if (selectedElement === correctAnswer) {
+    //     finalScore++;
+    //     console.log(finalScore);
 
 
 
 
 
+    //check if its right or wrong
+    //do what you must to the score
+    //check if you have extra questions to show or not (questionSet.length vs currentIndex)
+
+    // if (currentIndex>=5){
+    // window.location.href = "score_page.html";
+    // } else {
 
 
 
-// //Multiple Choice Question Array
-// var questionSet = [
-//     {
-//         prompt: "1. What extra tags must be added to an HTML page to include JavaScript statements?",
-//         choices: ["<script>", "<js>", "<javascript>", "java"],
-//         answer: "<script>",
-//         wrongAnswer: ["<js>", "<javascript>", "java"]
-//     },
-//     {
-//         prompt: "2. The window.alert() method is used to....",
-//         choices: ["call the police.", "write on the html page.", "send a message to the user in a modal dialog box.",
-//             "console.log a message."],
-//         answer: "send a message to the user in a modal dialog box."
 
-//     },
-//     {
-//         prompt: "3. How many <script> elements are permitted on a page?",
-//         choices: ["Only 1", "Any number", "None", "Upto 3 on a page"],
-//         answer: "Any number"
-//     },
-//     {
-//         prompt: "4. Which of these is a valid comment in JavaScript?",
-//         choices: ["//this is a comment in JS", "/*this is a comment in JS*/", "You can use either of these in JS to comment",
-//             "Neither of these is a way to comment in JS."],
-//         answer: "You can use either of these in JS to comment"
-//     },
-//     {
-//         prompt: "5. A variable defined inside a function is called...",
-//         choices: ["a local variable.", "a global variable.", "an inverted variable.", "a inner variable."],
-//         answer: "a local variable."
-//     }
-// ];
+}
 
 
-// function showQuestion() {
-//     //we need to pick from the array (not just first)
-//     var currentQuestion = questionSet[currentIndex]
-//     var questionEl = document.getElementById("question");
-//     // console.log(questionEl);
-//     // console.dir(questionEl)
-//     // console.log(currentQuestion)
-//     questionEl.textContent = currentQuestion.prompt;
-//     showChoices()
-// }
 
-// function showChoices() {
-//     var currentChoices = questionSet[currentIndex].choices;
-//     console.log(currentChoices)
-//     var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
-
-//     for (let i = 0; i < currentChoices.length; i++) {
-//         choiceElements[i].textContent = currentChoices[i]
-//         // console.log(choiceElements[i]);
-//         choiceElements[i].addEventListener("click", checkAnswer)
-//     }
-// }
-
-// function checkAnswer(event) {
-//     console.log(event);
-//     var selectedElement = event.target;
-//     var selectedAnswer = selectedElement.textContent;
-//     console.log(selectedElement);
-
-//     var correctAnswer = questionSet[currentIndex].answer;
-//     console.log(correctAnswer);
-
-//     if (selectedAnswer === correctAnswer) {
-//         finalScore++;
-//         console.log(finalScore);
-//     }
-
-//     nextQuestion();
-// }
-
-// function nextQuestion() {
+// nextQuestion() {
 //     if (currentIndex >= 5) {
 //         window.location.href = "score_page.html";
 //     } else {
-//         showQuestion();
-//         currentIndex++;
+
 //     }
 // }
 
-// function startTimer() {
-//     timerCount = 60;
-//     var timerEl = document.querySelector(".timer-counter");
-//     timer = setInterval(() => {
-//         timerCount--;
-//         timerEl.textContent = timerCount;
-// // //         //Note: logging to console.log, but will not connect to text in html
-
-// // //         //if (answerWrong){
-// // //         //counter-=10;
-// // //         //}
-// // //         //then next statement will be else?
-//         if (timerCount <= 0) {
-//             clearInterval(timer);
-//             console.log('Time is up!');
-// // //             //call function to go to score page when time runs out
 
 
-//         }
-//     }, 1000);
 
 
-//     showQuestion();
-// }
 
-// startTimer()
+
+
+//Multiple Choice Question Array
+var questionSet = [
+    {
+        prompt: "1. What extra tags must be added to an HTML page to include JavaScript statements?",
+        choices: ["<script>", "<js>", "<javascript>", "java"],
+        answer: "<script>",
+        wrongAnswer: ["<js>", "<javascript>", "java"]
+    },
+    {
+        prompt: "2. The window.alert() method is used to....",
+        choices: ["call the police.", "write on the html page.", "send a message to the user in a modal dialog box.",
+            "console.log a message."],
+        answer: "send a message to the user in a modal dialog box."
+
+    },
+    {
+        prompt: "3. How many <script> elements are permitted on a page?",
+        choices: ["Only 1", "Any number", "None", "Upto 3 on a page"],
+        answer: "Any number"
+    },
+    {
+        prompt: "4. Which of these is a valid comment in JavaScript?",
+        choices: ["//this is a comment in JS", "/*this is a comment in JS*/", "You can use either of these in JS to comment",
+            "Neither of these is a way to comment in JS."],
+        answer: "You can use either of these in JS to comment"
+    },
+    {
+        prompt: "5. A variable defined inside a function is called...",
+        choices: ["a local variable.", "a global variable.", "an inverted variable.", "a inner variable."],
+        answer: "a local variable."
+    }
+];
+
+
+function showQuestion() {
+    //we need to pick from the array (not just first)
+    var currentQuestion = questionSet[currentIndex]
+    var questionEl = document.getElementById("question");
+    // console.log(questionEl);
+    // console.dir(questionEl)
+    // console.log(currentQuestion)
+    questionEl.textContent = currentQuestion.prompt;
+    showChoices()
+}
+
+function showChoices() {
+    var currentChoices = questionSet[currentIndex].choices;
+    console.log(currentChoices)
+    var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
+
+    for (let i = 0; i < currentChoices.length; i++) {
+        choiceElements[i].textContent = currentChoices[i]
+        // console.log(choiceElements[i]);
+        choiceElements[i].addEventListener("click", checkAnswer)
+    }
+}
+
+function checkAnswer(event) {
+    console.log(event);
+    var selectedElement = event.target;
+    var selectedAnswer = selectedElement.textContent;
+    console.log(selectedElement);
+
+    var correctAnswer = questionSet[currentIndex].answer;
+    console.log(correctAnswer);
+
+    if (selectedAnswer === correctAnswer) {
+        finalScore++;
+        console.log(finalScore);
+    }
+
+    nextQuestion();
+}
+
+function nextQuestion() {
+    if (currentIndex >= 5) {
+        window.location.href = "score_page.html";
+    } else {
+        showQuestion();
+        currentIndex++;
+    }
+}
+
+function startTimer() {
+    timerCount = 60;
+    var timerEl = document.querySelector(".timer-counter");
+    timer = setInterval(() => {
+        timerCount--;
+        timerEl.textContent = timerCount;
+// //         //Note: logging to console.log, but will not connect to text in html
+
+// //         //if (answerWrong){
+// //         //counter-=10;
+// //         //}
+// //         //then next statement will be else?
+        if (timerCount <= 0) {
+            clearInterval(timer);
+            console.log('Time is up!');
+// //             //call function to go to score page when time runs out
+
+
+        }
+    }, 1000);
+
+
+    showQuestion();
+}
+
+startTimer()
 
 //check if its right or wrong
 //do what you must to the score
