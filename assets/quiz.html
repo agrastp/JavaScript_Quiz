@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/quiz.css" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <script src="./assets/script.js" defer></script>
+    <link rel="stylesheet" href="./css/quiz.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/script.js" defer></script>
 
     <title>JavaScript Quiz</title>
 </head>
 
 <body>
     <section>
+        <!-- Question and Choices Container -->
         <div class="container">
             <div id="game" class="justify-center flex-column">
                 <h2 id="question">What is the answer to this question?</h2>
@@ -32,10 +33,12 @@
                     <p class=choice-selector>D</p>
                     <p class="choice-text">Choice 4</p>
                 </div>
+                <!-- Message appears here -->
                 <div class="message"></div>
             </div>
         </div>
     </section>
+    <!-- Timer Section -->
     <section>
         <div class="timer">
             <div class="timer-text">

@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/score_page.css">
-    <script src="./assets/script.js" defer></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/score_page.css">
+   
+    
     <title>Score Page</title>
 </head>
 <body>
+    <!-- Final Score Card -->
     <div class="score-card">
         <div class="final-results">
-            <h2>Your final score is <span class="correct">0</span>/5</h2>
+            <h2>Your final score is <span id="correct">0</span>/5</h2>
         </div>
+        <!-- Initials Box -->
         <div class="initials"><input id=box type="text" value="Type your initials"></div>
         <div class="button-box"><button id="enter">Enter</button></div>
     </div>
+    <!-- High Score Box -->
     <div class="high-scores">
         <h3>High Scores:</h3>
+        <div id="saved-info">
         <p id="saved-initials"></p>
+        <span id="score">0</span>
+        </div>
     </div>
-   
+        <script src="./js/score.js"></script>
 </body>
 </html>

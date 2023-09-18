@@ -1,3 +1,4 @@
+/*Quiz Question and Choices */
 
 .container{
     padding-top: 20px;
@@ -28,6 +29,8 @@
 .choice-text{
     padding-top:1.5rem;
 }
+
+/*Timer Element*/
 
 .timer {
     height: 150px;

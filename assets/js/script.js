@@ -1,3 +1,4 @@
+//Global Variables
 var timerCount;
 var currentIndex = 0;
 var finalScore = 0;
@@ -36,7 +37,7 @@ var questionSet = [
     }
 ];
 
-
+//Generates the Question
 function showQuestion() {
     var currentQuestion = questionSet[currentIndex]
     var questionEl = document.getElementById("question");
@@ -47,6 +48,7 @@ function showQuestion() {
     showChoices()
 }
 
+//Generates the Choices for each question
 function showChoices() {
     var currentChoices = questionSet[currentIndex].choices;
     console.log(currentChoices)
@@ -59,6 +61,8 @@ function showChoices() {
     }
 }
 
+
+//Checks the answer and logs correct scores to local storage
 function checkAnswer(event) {
     console.log(event);
     var selectedElement = event.target;
@@ -70,6 +74,10 @@ function checkAnswer(event) {
 
     if (selectedAnswer == correctAnswer) {
         finalScore++;
+        console.log(finalScore);
+        localStorage.setItem("final score", JSON.stringify(finalScore));
+
+//A message is presented if the answer is correct or wrong
         displayMessage("Correct!");
     } else {
         secondsElapsed += 10;
@@ -78,7 +86,7 @@ function checkAnswer(event) {
 
     nextQuestion();
 }
-
+//Message Function
 function displayMessage(m) {
     let messageHr = document.createElement("hr");
     let messageEl = document.createElement("div");
@@ -92,31 +100,30 @@ function displayMessage(m) {
 
 }
 
+//Continues generating questions
+
 function nextQuestion() {
     currentIndex++;
-    if (currentIndex < questionSet.length -1)  {
+    if (currentIndex < questionSet.length) {
         showQuestion();
     } else {
         stopTimer();
         timerEl = 0;
         window.location.href = "score_page.html";
-        var scoreEl = document.querySelector(".correct");
-        scoreEl.textContent = finalScore; 
+
     }
 }
-
-console.log(finalScore);
-
+//Starts Timer
 function startTimer() {
     timerCount = 60;
     var timerEl = document.querySelector(".timer-counter");
-    timer = setInterval(function(){
+    timer = setInterval(function () {
         secondsElapsed++;
         timerEl.textContent = timerCount - secondsElapsed;
-       
-    },  1000);
+
+    }, 1000);
     showQuestion();
- 
+
 }
 
 startTimer();
@@ -125,49 +132,11 @@ function stopTimer() {
     clearInterval(timer);
 }
 
-//check if its right or wrong
-//do what you must to the score
-//check if you have extra questions to show or not (questionSet.length vs currentIndex)
-//Multiple Choice Question Array
 
 
-//1. After clicking Play on index.html, page will load to quiz html
-//2. Timer will start counting down and first question will load
-//3. User will click answer
-//a. if wrong, time will decrease by x seconds and score will NOT increase
-//b. if correct, time will continue and score will increase by 1
-//4.  When the user selects an answer, the screen will display either correct or wrong
-//5. Next question will load
-//6.  After all 5 questions, user will see final score
-//7. User can then log initials with highscore.  
-//8. Highscores can be viewed 
-// var enterButton = document.getElementById("enter");
-// var initials = document.getElementById("box");
-
-// function insertInitials() {
-
-//     var inputedInitials = {
-//         initials: initials.value,
-//     };
-//     localStorage.setItem("initials", JSON.stringify(inputedInitials));
-
-// }
-
-// function insertInitialsList() {
-//     var lastInputedHighScore = JSON.parse(localStorage.getItem("initials"));
-//     document.getElementById('saved-initials').innerHTML = lastInputedHighScore.initials;
-// }
 
 
-// enterButton.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     insertInitials();
-//     insertInitialsList();
-// });
 
 
-// 
 
-// 
 
-//     
