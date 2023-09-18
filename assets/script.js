@@ -1,87 +1,7 @@
 var timerCount;
 var currentIndex = 0;
 var finalScore = 0;
-
-//connects JS with the HTML doc
-
-function showQuestion() {
-    //we need to pick from the array (not just first)
-    var currentQuestion = questionSet[currentIndex]
-    var questionEl = document.getElementById("question");
-    console.log(questionEl);
-    console.dir(questionEl)
-    console.log(currentQuestion)
-    questionEl.textContent = currentQuestion.prompt;
-    showChoices()
-}
-
-function showChoices() {
-    var currentChoices = questionSet[currentIndex].choices;
-    console.log(currentChoices)
-    var choiceElements = Array.from(document.getElementsByClassName("choice-text"));
-
-    for (let i = 0; i < currentChoices.length; i++) {
-        choiceElements[i].textContent = currentChoices[i]
-        // console.log(choiceElements[i]);
-        choiceElements[i].addEventListener("click", checkAnswer)
-    }
-}
-
-function checkAnswer(event) {
-    console.log(event);
-    var selectedElement = event.target;
-
-    console.log(selectedElement);
-    console.log(typeof(selectedElement));
-
-    var correctAnswer = questionSet[currentIndex].answer;
-    console.log(correctAnswer);
-    console.log(typeof(correctAnswer));
-
-    console.log(JSON.stringify(selectedElement));
-
-
-    //this takes the user to the next question
-    // showQuestion();
-    // currentIndex++;
-
-    // if (selectedElement === correctAnswer) {
-    //     finalScore++;
-    //     console.log(finalScore);
-
-
-
-
-
-    //check if its right or wrong
-    //do what you must to the score
-    //check if you have extra questions to show or not (questionSet.length vs currentIndex)
-
-    // if (currentIndex>=5){
-    // window.location.href = "score_page.html";
-    // } else {
-
-
-
-
-}
-
-
-
-// nextQuestion() {
-//     if (currentIndex >= 5) {
-//         window.location.href = "score_page.html";
-//     } else {
-
-//     }
-// }
-
-
-
-
-
-
-
+var secondsElapsed = 0;
 
 //Multiple Choice Question Array
 var questionSet = [
@@ -118,7 +38,6 @@ var questionSet = [
 
 
 function showQuestion() {
-    //we need to pick from the array (not just first)
     var currentQuestion = questionSet[currentIndex]
     var questionEl = document.getElementById("question");
     // console.log(questionEl);
@@ -149,49 +68,69 @@ function checkAnswer(event) {
     var correctAnswer = questionSet[currentIndex].answer;
     console.log(correctAnswer);
 
-    if (selectedAnswer === correctAnswer) {
+    if (selectedAnswer == correctAnswer) {
         finalScore++;
-        console.log(finalScore);
+        displayMessage("Correct!");
+    } else {
+        secondsElapsed += 10;
+        displayMessage("Wrong...");
     }
 
     nextQuestion();
 }
 
+function displayMessage(m) {
+    let messageHr = document.createElement("hr");
+    let messageEl = document.createElement("div");
+    messageEl.textContent = m;
+    document.querySelector(".message").appendChild(messageHr);
+    document.querySelector(".message").appendChild(messageEl);
+    setTimeout(function () {
+        messageHr.remove();
+        messageEl.remove();
+    }, 1000);
+
+}
+
+// function nextQuestion() {
+//     if (currentIndex > questionSet.length) {
+//         window.location.href = "score_page.html";
+//     } else {
+//         showQuestion();
+//         currentIndex++;
+//     }
+// }
+
+var scoreEl = document.querySelector(".correct");
 function nextQuestion() {
-    if (currentIndex >= 5) {
-        window.location.href = "score_page.html";
-    } else {
+    currentIndex++;
+    if (currentIndex <= questionSet.length) {
         showQuestion();
-        currentIndex++;
+    } else {
+        stopTimer();
+        timerEl = 0;
+        window.location.href = "score_page.html";
+        scoreEl.textContent = finalScore; 
     }
 }
 
 function startTimer() {
     timerCount = 60;
     var timerEl = document.querySelector(".timer-counter");
-    timer = setInterval(() => {
-        timerCount--;
-        timerEl.textContent = timerCount;
-// //         //Note: logging to console.log, but will not connect to text in html
-
-// //         //if (answerWrong){
-// //         //counter-=10;
-// //         //}
-// //         //then next statement will be else?
-        if (timerCount <= 0) {
-            clearInterval(timer);
-            console.log('Time is up!');
-// //             //call function to go to score page when time runs out
-
-
-        }
-    }, 1000);
-
-
+    timer = setInterval(function(){
+        secondsElapsed++;
+        timerEl.textContent = timerCount - secondsElapsed;
+       
+    },  1000);
     showQuestion();
+ 
 }
 
 startTimer()
+
+function stopTimer() {
+    clearInterval(interval);
+}
 
 //check if its right or wrong
 //do what you must to the score
@@ -209,28 +148,33 @@ startTimer()
 //6.  After all 5 questions, user will see final score
 //7. User can then log initials with highscore.  
 //8. Highscores can be viewed 
-var enterButton = document.getElementById("enter");
-var initials = document.getElementById("box");
+// var enterButton = document.getElementById("enter");
+// var initials = document.getElementById("box");
 
-function insertInitials() {
+// function insertInitials() {
 
-    var inputedInitials = {
-        initials: initials.value,
-    };
-    localStorage.setItem("initials", JSON.stringify(inputedInitials));
+//     var inputedInitials = {
+//         initials: initials.value,
+//     };
+//     localStorage.setItem("initials", JSON.stringify(inputedInitials));
 
-}
+// }
 
-function insertInitialsList() {
-    var lastInputedHighScore = JSON.parse(localStorage.getItem("initials"));
-    document.getElementById('saved-initials').innerHTML = lastInputedHighScore.initials;
-}
-
-
-enterButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    insertInitials();
-    insertInitialsList();
-});
+// function insertInitialsList() {
+//     var lastInputedHighScore = JSON.parse(localStorage.getItem("initials"));
+//     document.getElementById('saved-initials').innerHTML = lastInputedHighScore.initials;
+// }
 
 
+// enterButton.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     insertInitials();
+//     insertInitialsList();
+// });
+
+
+// 
+
+// 
+
+//     
