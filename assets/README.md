@@ -14,7 +14,7 @@ N/A
 
 This project can be used as a quiz template.  The questions and length of the quiz can be changed for future assessments.
 
-![Webpage Example](website.png?raw=true "Webpage Example")
+![Webpage Example](./website.png?raw=true "Webpage Example")
 
 
 ## Credits
